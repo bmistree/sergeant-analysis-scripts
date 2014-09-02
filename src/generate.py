@@ -4,6 +4,14 @@ import sys
 
 from util.cfg_reader import read_config
 
+# Keys are strings, values are functions for processing data.  When we
+# encounter a key in our dictionary from reading the config file, the
+# value of the key are the arguments that get passed to the function.
+available_processes = {}
+
+
+import modules.distributed
+
 
 def run():
     description_string = '''
