@@ -3,17 +3,19 @@ import argparse
 import sys
 
 from util.cfg_reader import read_config
-
-# Keys are strings, values are functions for processing data.  When we
-# encounter a key in our dictionary from reading the config file, the
-# value of the key are the arguments that get passed to the function.
-available_processes = {}
-
+import modules.modules
+from modules.modules import get_processor
 
 import modules.distributed
 
-
 def run():
+    config_list = parse_cfg()
+    for processor_job in config_list:
+        processor = get_processor(processor_job['name'])
+        processor.run(**processor_job['args'])
+    
+
+def parse_cfg():
     description_string = '''
 Use this script to process experimental data.
 '''
@@ -30,7 +32,8 @@ Use this script to process experimental data.
     else:
         cfg_filename = args.cfg
 
-    config_dict = read_config(cfg_filename)
+    config_list = read_config(cfg_filename)
+    return config_list
     
     
 if __name__ == '__main__':

@@ -27,7 +27,7 @@ def read_throughputs_produce_latencies(
     # single_file_data is a list containing separate lists.  Each list
     # contains timestamps from a single application's operations.
     single_file_data = _read_single_file_data(filename)
-
+    
     # first take deltas to produce latencies
     latency_data = []
     for single_application_data in single_file_data:
