@@ -19,7 +19,7 @@ class LatencyProcessor(object):
     def run(**kwargs):
         #(fq_latency_filename, output_filename):
         '''
-        @param {String} fq_input_filenames_list --- Each element is a
+        @param {String} latency_filename --- Each element is a
         string, which is the fully-qualified name of the input file.
 
         @param {String} output_filename --- Will save data to this file.
