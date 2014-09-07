@@ -6,6 +6,8 @@ from util.cfg_reader import read_config
 import modules.modules
 from modules.modules import get_processor
 
+import modules.single_node
+
 def run():
     config_list = parse_cfg()
     for processor_job in config_list:
