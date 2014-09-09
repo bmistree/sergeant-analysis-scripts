@@ -7,6 +7,7 @@ import modules.modules
 from modules.modules import get_processor
 
 import modules.single_node
+import modules.distributed
 
 def run():
     config_list = parse_cfg()
